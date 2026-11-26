@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+spring:
+  # 数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mistake_book?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: ${DB_PASSWORD}
+
+  # JSP 视图配置
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+  # 文件上传
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+
+# MyBatis-Plus
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cn.aimistakebook.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+# 阿里云百炼 AI（API Key 后面再填）
+bailian:
+  api-key: ${BAILIAN_API_KEY:}
+  endpoint: https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation
+  text-model: qwen-plus
+
+# 日志
+logging:
+  level:
+    cn.aimistakebook: debug
