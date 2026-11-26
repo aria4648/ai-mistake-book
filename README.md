@@ -135,10 +135,6 @@ mvn spring-boot:run
 8. **统一返回格式** — `Result<T>` 泛型封装，`code/msg/data` 三字段，前后端对接无歧义
 9. **全链路类型安全** — 主键用 `Long`（对应 BIGINT），时间用 `LocalDateTime`（线程安全），实体类字段全用包装类
 
-## 📝 面试话术参考
-
-> 我独立做了一个 AI 错题本系统，后端用 Spring Boot 2.7 + MyBatis-Plus 3.5 + MySQL，前端原生 JS + fetch。四层架构实现了用户注册登录（MD5 加密 + Session 鉴权）、错题增删改查、按学科筛选、越权访问防护，最大亮点是集成了阿里云百炼大模型，用 RestTemplate 调 DashScope API，用户添加错题后可以一键让 AI 生成结构化解析。敏感配置用环境变量 + .gitignore 排除，防止密钥泄露。
-
 ## 📌 关于 AI 返回格式
 
 百炼 DashScope API 的实际返回格式为：
